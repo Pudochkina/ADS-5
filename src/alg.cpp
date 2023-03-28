@@ -5,22 +5,22 @@
 
 TStack<char, 100> stack1;
 TStack<int, 100> stack2;
-    char ch0 = '0';
-    char ch1 = '1';
-    char ch2 = '2';
-    char ch3 = '3';
-    char ch4 = '4';
-    char ch5 = '5';
-    char ch6 = '6';
-    char ch7 = '7';
-    char ch8 = '8';
-    char ch9 = '9';
-    char chM = '-';
-    char chP = '+';
-    char chD = '/';
-    char chMlt = '*';
-    char ch9Rsk = ')';
-    char ch9Lsk = '(';
+char ch0 = '0';
+char ch1 = '1';
+char ch2 = '2';
+char ch3 = '3';
+char ch4 = '4';
+char ch5 = '5';
+char ch6 = '6';
+char ch7 = '7';
+char ch8 = '8';
+char ch9 = '9';
+char chM = '-';
+char chP = '+';
+char chD = '/';
+char chMlt = '*';
+char ch9Rsk = ')';
+char ch9Lsk = '(';
 
 int getPrior(char ch) {
     switch(ch) {
