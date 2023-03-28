@@ -26,7 +26,6 @@ int getPrior(char ch) {
 
 std::string infx2pstfx(std::string inf) {
     std::string out = "";
-    // копируем символы строки inf в массив chars
     char chars[inf.length() + 1];
     inf.copy(chars, inf.length() + 1);
     for (int i = 0; i < inf.length(); i++) {
