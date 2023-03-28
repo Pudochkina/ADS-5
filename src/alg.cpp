@@ -44,6 +44,9 @@ std::string infx2pstfx(std::string inf) {
             if (stack1.get() == ch9Lsk) {
                 stack1.pop();
             }
+            if (inf.at(i)!=ch9Rsk || inf.at(i)!=ch9Lsk) {
+                stack1.push(inf.at(i));
+            }
         }
     }
     while (!stack1.isEmpty()) {
