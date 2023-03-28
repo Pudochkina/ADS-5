@@ -8,17 +8,17 @@ TStack<int, 100> stack2;
 
 int getPrior(char ch) {
     switch(ch) {
-        case"(":
+        case '(':
         return 0;
-        case")":
+        case ')':
         return 1;
-        case"+":
+        case '+':
         return 2;
-        case"-":
+        case '-':
         return 2;
-        case"*":
+        case '*':
         return 3;
-        case"/":
+        case '/':
         return 3;
     }
     return -1;
