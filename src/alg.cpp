@@ -43,11 +43,11 @@ std::string infx2pstfx(std::string inf) {
             }
         }
     }
-    while (stack1.isEmpty() == false) {
-        out += stack1.pop() + " ";
+    while (!stack1.isEmpty()) {
         if (stack1.get() == ch9Lsk) {
             stack1.pop();
         }
+        out += stack1.pop() + " ";
     }
     return out;
 }
