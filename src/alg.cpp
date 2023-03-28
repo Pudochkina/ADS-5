@@ -33,7 +33,7 @@ std::string infx2pstfx(std::string inf) {
         if (inf.at(i) == ch0 || inf.at(i) == ch1 || inf.at(i) == ch2 || inf.at(i) == ch3 || inf.at(i) == ch4 || inf.at(i) == ch5 || inf.at(i) == ch6 || inf.at(i) == ch7 || inf.at(i) == ch8 || inf.at(i) == ch9) {
             out += inf.at(i) + " ";
         }
-        if ((inf.at(i) == ch9Lsk || inf.at(i) == ch9Rsk || inf.at(i) == chP || inf.at(i) == chM || inf.at(i) == chMlt || inf.at(i) == chD || stack1.isEmpty()) && (getPrior(inf.at(i)) > getPrior(stack1.get()))) {
+        if ((inf.at(i) == ch9Lsk || inf.at(i) == ch9Rsk || inf.at(i) == chP || inf.at(i) == chM || inf.at(i) == chMlt || inf.at(i) == chD  && getPrior(inf.at(i)) > getPrior(stack1.get())) || stack1.isEmpty()) {
             stack1.push(inf.at(i));
         }
         if ((inf.at(i) == ch9Lsk || inf.at(i) == ch9Rsk || inf.at(i) == chP || inf.at(i) == chM || inf.at(i) == chMlt || inf.at(i) == chD) && (getPrior(inf.at(i)) <= getPrior(stack1.get()))) {
