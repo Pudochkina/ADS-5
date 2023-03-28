@@ -29,7 +29,7 @@ int getPrior(char ch) {
 
 std::string infx2pstfx(std::string inf) {
    std::string out = "";
-    for (int i = 0; i < inf.length(); i++) {
+    for (int i = 0; i < inf.size(); i++) {
         if (inf.at(i) == ch0 || inf.at(i) == ch1 || inf.at(i) == ch2 || inf.at(i) == ch3 || inf.at(i) == ch4 || inf.at(i) == ch5 || inf.at(i) == ch6 || inf.at(i) == ch7 || inf.at(i) == ch8 || inf.at(i) == ch9) {
             out += inf.at(i) + " ";
         }
