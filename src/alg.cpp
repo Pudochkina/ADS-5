@@ -29,7 +29,7 @@ std::string infx2pstfx(std::string inf) {
     // копируем символы строки inf в массив chars
     char chars[inf.length() + 1];
     inf.copy(chars, inf.length() + 1);
-    for (int i = 0; i < chars.length(); i++) {
+    for (int i = 0; i < inf.length(); i++) {
         if (chars[i] == "0" || chars[i] == "1"|| chars[i] == "2"|| chars[i] == "3"|| chars[i] == "4" || chars[i] == "5"|| chars[i] == "6"|| chars[i] == "7"|| chars[i] == "8"|| chars[i] == "9") {
             out += chars[i];
             //stack1.push(chars[i]);
