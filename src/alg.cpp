@@ -7,7 +7,6 @@ TStack<int, 100> stack2;
 char ch0 = '0', ch1 = '1', ch2 = '2', ch3 = '3', ch4 = '4', ch5 = '5',
 ch6 = '6', ch7 = '7', ch8 = '8', ch9 = '9', chM = '-',
 chP = '+', chD = '/', chMlt = '*', ch9Rsk = ')', ch9Lsk = '(';
-
 int getPrior(char ch) {
     switch(ch) {
         case '(':
@@ -25,7 +24,6 @@ int getPrior(char ch) {
     }
     return -1;
 }
-
 std::string infx2pstfx(std::string inf) { 
    TStack<char, 100> stack1;
    std::string out = "";
