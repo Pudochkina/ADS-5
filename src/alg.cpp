@@ -32,11 +32,11 @@ std::string infx2pstfx(std::string inf) {
         }
         else if (inf[i] == ch9Lsk || stack1.isEmpty() || getPrior(inf[i]) > getPrior(stack1.get())) {
             stack1.push(inf[i]);
-        } else if (getPrior(inf[i] <= stck.get())) {
-                while (getPrior(inf[i] <= stck.get()) && !stack1.isEmpty()) {
+        } else if (getPrior(inf[i] <= stack1.get())) {
+                while (getPrior(inf[i] <= stack1.get()) && !stack1.isEmpty()) {
                     out +=  stack1.pop() + " ";
                 }
-                stck.push(inf[i]);
+                stack1.push(inf[i]);
             }
         /*else if (getPrior(inf[i]) <= getPrior(stack1.get())) {
             out += stack1.get() + " ";
