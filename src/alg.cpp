@@ -67,37 +67,42 @@ int eval(std::string pref) {
       continue;
       } 
       if (pref[i] == ch0 || pref[i] == ch1 || pref[i] == ch2 || pref[i] == ch3 || pref[i] == ch4 || pref[i] == ch5 || pref[i] == ch6 || pref[i] == ch7 || pref[i] == ch8 || pref[i] == ch9) {
-          //int arg;
-          //char = pref[i];
-          stack2.push(pref[i]);
+          int arg = 0;
+          char ch = pref[i];
+          arg = ch - '0';
+          stack2.push(arg);
       }
       if (pref[i] == chM) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
-          stack2.push(arg1-arg2);
+          int res = arg1-arg2;
+          stack2.push(res);
       }
       if (pref[i] == chP) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
-          stack2.push(arg1+arg2);
+          int res = arg1+arg2;
+          stack2.push(res);
       }
       if (pref[i] == chMlt) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
-          stack2.push(arg1*arg2);
+          int res = arg1*arg2;
+          stack2.push(res);
       }
       if (pref[i] == chD) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
-          stack2.push(arg1/arg2);
+          int res = arg1/arg2;
+          stack2.push(res);
       }
   }
   result = stack2.get();
