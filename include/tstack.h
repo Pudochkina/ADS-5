@@ -8,8 +8,7 @@ class TStack {
  private:
   T[size];
   int top;
- 
- public:
+  public:
   TStack(): top(-1) { }
   void push(T value) {
       if (isFull()) {
