@@ -55,6 +55,6 @@ std::string infx2pstfx(std::string inf) {
   return out;
 }
 
-//int eval(std::string pref) {
-    
-//}
+int eval(std::string pref) {
+  return 0;
+}
