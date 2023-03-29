@@ -56,8 +56,8 @@ if (getPrior(inf[i] <= stack1.get())) {
     }
     while (!stack1.isEmpty()) {
         char s = stack1.pop();
-        post += s;
-        post += " ";
+        out += s;
+        out += " ";
     }
     out.pop_back();
     return out;
