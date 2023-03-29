@@ -25,49 +25,35 @@ int getPrior(char ch) {
 //std::string infx2pstfx(std::string inf) {
 //}
 int eval(std::string pref) {
-    TStack <int, 100> stack2;
-    for (char ch : pref) {
-        if (ch == ' ')
+    TStack <int, 100> temp;
+    for (char s : pref) {
+        if (s == ' ')
             continue;
-        if (ch == ch0 || ch == ch1
-          || ch == ch2 || ch == ch3 || ch== ch4
-          || ch == ch5 || ch == ch6 || ch == ch7
-          || ch == ch8 || ch == ch9) {
-           int arg = static_cast<int>(ch - '0');
-           stack2.push(arg);
-        } 
-          if (ch == chM) {
-          int arg1 = stack2.get();
-          stack2.pop();
-          int arg2 = stack2.get();
-          stack2.pop();
-          int res = arg2-arg1;
-          stack2.push(res);
-      }
-      if (ch == chP) {
-          int arg1 = stack2.get();
-          stack2.pop();
-          int arg2 = stack2.get();
-          stack2.pop();
-          int res = arg1+arg2;
-          stack2.push(res);
-      }
-      if (ch == chMlt) {
-          int arg1 = stack2.get();
-          stack2.pop();
-          int arg2 = stack2.get();
-          stack2.pop();
-          int res = arg2*arg1;
-          stack2.push(res);
-      }
-      if (ch == chD) {
-          int arg1 = stack2.get();
-          stack2.pop();
-          int arg2 = stack2.get();
-          stack2.pop();
-          int res = arg2/arg1;
-          stack2.push(res);
-      }
+        if ((s <= '9') && (s >= '0')) {
+            int z = static_cast<int>(s - '0');
+            temp.push(z);
+        } else {
+            int zn;
+            int first = temp.get();
+            temp.pop();
+            int second = temp.get();
+            temp.pop();
+            switch (s) {
+            case '+':
+                zn = second + first;
+                break;
+            case '-':
+                zn = second - first;
+                break;
+            case '*':
+                zn = second * first;
+                break;
+            case '/':
+                zn = second / first;
+                break;
+            }
+            temp.push(zn);
+        }
     }
-    return stack2.pop();
+    return temp.pop();
 }
