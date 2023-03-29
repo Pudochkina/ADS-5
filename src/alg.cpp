@@ -31,27 +31,17 @@ std::string infx2pstfx(std::string inf) {
 || inf[i] == ch8 || inf[i] == ch9) {
             out += inf[i] + " ";
         }
-        else if (inf[i] == ch9Lsk || stack1.isEmpty() 
+        if (inf[i] == ch9Lsk || stack1.isEmpty() 
 || getPrior(inf[i]) > getPrior(stack1.get())) {
             stack1.push(inf[i]);
-        } else if (getPrior(inf[i] <= stack1.get())) {
+        } 
+        if (getPrior(inf[i] <= stack1.get())) {
                 while (getPrior(inf[i] <= stack1.get()) && !stack1.isEmpty()) {
                     out +=  stack1.pop() + " ";
                 }
                 stack1.push(inf[i]);
             }
-        /*else if (getPrior(inf[i]) <= getPrior(stack1.get())) {
-            out += stack1.get() + " ";
-            stack1.pop();
-            if (stack1.get() == ch9Lsk) {
-                stack1.pop();
-            }
-            if (inf[i]!=ch9Lsk) {
-                stack1.push(inf[i]);
-            }
-        }*/
-        
-         else if (inf[i] == ch9Rsk) {
+        if (inf[i] == ch9Rsk) {
                 char ch = stack1.pop();
                 while (ch != ch9Lsk) {
                     out += ch + " ";
@@ -67,6 +57,7 @@ std::string infx2pstfx(std::string inf) {
         stack1.pop();
         }
     }
+    out -= " ";
     return out;
 }
 
