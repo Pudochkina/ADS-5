@@ -63,31 +63,36 @@ int eval(std::string pref) {
   TStack<int, 100> stack2;
   int result;
   for (int i = 0; i < pref.length(); i++) {
-      if (pref.at(i) == ch0 || pref.at(i) == ch1 || pref.at(i) == ch2 || pref.at(i) == ch3 || pref.at(i) == ch4 || pref.at(i) == ch5 || pref.at(i) == ch6 || pref.at(i) == ch7 || pref.at(i) == ch8 || pref.at(i) == ch9) {
-          stack2.push(pref.at(i));
+      if (pref[i] == ' ') {
+      continue;
+      } 
+      if (pref[i] == ch0 || pref[i] == ch1 || pref[i] == ch2 || pref[i] == ch3 || pref[i] == ch4 || pref[i] == ch5 || pref[i] == ch6 || pref[i] == ch7 || pref[i] == ch8 || pref[i] == ch9) {
+          //int arg;
+          //char = pref[i];
+          stack2.push(pref[i]);
       }
-      if (pref.at(i) == chM) {
+      if (pref[i] == chM) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
           stack2.push(arg1-arg2);
       }
-      if (pref.at(i) == chP) {
+      if (pref[i] == chP) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
           stack2.push(arg1+arg2);
       }
-      if (pref.at(i) == chMlt) {
+      if (pref[i] == chMlt) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
           stack2.push(arg1*arg2);
       }
-      if (pref.at(i) == chD) {
+      if (pref[i] == chD) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
