@@ -32,8 +32,13 @@ std::string infx2pstfx(std::string inf) {
         }
         else if (inf[i] == ch9Lsk || stack1.isEmpty() || getPrior(inf[i]) > getPrior(stack1.get())) {
             stack1.push(inf[i]);
-        }
-        else if (getPrior(inf[i]) <= getPrior(stack1.get())) {
+        } else if (getPrior(inf[i] <= stck.get())) {
+                while (getPrior(inf[i] <= stck.get()) && !stack1.isEmpty()) {
+                    out +=  stack1.pop() + " ";
+                }
+                stck.push(inf[i]);
+            }
+        /*else if (getPrior(inf[i]) <= getPrior(stack1.get())) {
             out += stack1.get() + " ";
             stack1.pop();
             if (stack1.get() == ch9Lsk) {
@@ -42,7 +47,15 @@ std::string infx2pstfx(std::string inf) {
             if (inf[i]!=ch9Lsk) {
                 stack1.push(inf[i]);
             }
-        }
+        }*/
+        
+         else if (inf[i] == ch9Rsk) {
+                char ch = stack1.pop();
+                while (ch != ch9Lsk) {
+                    out += ch + " ";
+                    ch = stack1.pop();
+                }
+            } 
     }
     while (!stack1.isEmpty()) {
         if (stack1.get() == ch9Lsk) {
@@ -64,7 +77,7 @@ int eval(std::string pref) {
           || pref[i] == ch5 || pref[i] == ch6 || pref[i] == ch7 || pref[i] == ch8 || pref[i] == ch9) {
           int arg = 0;
           char ch = pref[i];
-          arg = ch - '0';
+          arg = static_cast<int>(ch - '0');
           stack2.push(arg);
       }
       if (pref[i] == p) {
