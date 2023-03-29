@@ -28,7 +28,9 @@ int eval(std::string pref) {
     TStack <int, 100> stack2;
     char p = ' ';
     for (int i = 0; i < pref.length(); i++) {
-        
+        if (pref[i] == p) {
+         continue;
+        }
         if (pref[i] == ch0 || pref[i] == ch1
           || pref[i] == ch2 || pref[i] == ch3 || pref[i] == ch4
           || pref[i] == ch5 || pref[i] == ch6 || pref[i] == ch7
@@ -37,15 +39,12 @@ int eval(std::string pref) {
             int arg = static_cast<int>(ch - '0');
             stack2.push(arg);
         }
-        if (pref[i] == p) {
-         continue;
-        } 
           if (pref[i] == chM) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
-          int res = arg1-arg2;
+          int res = arg2-arg1;
           stack2.push(res);
       }
       if (pref[i] == chP) {
@@ -69,7 +68,7 @@ int eval(std::string pref) {
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
-          int res = arg1/arg2;
+          int res = arg2/arg1;
           stack2.push(res);
       }
     }
