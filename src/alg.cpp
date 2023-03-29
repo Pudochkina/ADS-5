@@ -44,7 +44,7 @@ std::string infx2pstfx(std::string inf) {
                     ch = stack1.pop();
                 }
             }  
-if (getPrior(inf[i] <= stck.get())) {
+if (getPrior(inf[i] <= stack1.get())) {
                 while (getPrior(inf[i] <= stack1.get()) && !stack1.isEmpty()) {
                     char c = stack1.pop();
                     out += c;
