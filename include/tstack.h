@@ -32,10 +32,10 @@ class TStack {
       }
   }
   bool isEmpty() const {
-      return top==-1;
+      return top == -1;
   }
   bool isFull() const {
-      return top!=-1;
+      return top != -1;
   }
 };
 
