@@ -9,21 +9,21 @@ class TStack {
   int top;
   public:
   TStack():top(-1){}
-  void push(T & value) {
+  void push(T value) {
       if (isFull()) {
           throw std::string("Full!");
       } else {
       arr[++top] = value;
       }
   }
-  T pop() {
+  T& pop() {
       if (isEmpty()) {
           throw std::string("Empty!");
       } else {
           return arr[top--];
       }
   }
-  T get() const{
+  T& get() const{
       if (isEmpty()) {
           throw std::string("Empty!");
       } else {
