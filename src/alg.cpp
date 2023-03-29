@@ -22,24 +22,25 @@ int getPrior(char ch) {
     }
     return -1;
 }
-
+std::string infx2pstfx(std::string inf) {
+}
 int eval(std::string pref) {
   
     TStack <int, 100> stack2;
     char p = ' ';
-    for (int i = 0; i < pref.length(); i++) {
-        if (pref[i] == p) {
-         continue;
-        }
-        if (pref[i] == ch0 || pref[i] == ch1
-          || pref[i] == ch2 || pref[i] == ch3 || pref[i] == ch4
-          || pref[i] == ch5 || pref[i] == ch6 || pref[i] == ch7
-          || pref[i] == ch8 || pref[i] == ch9) {
-            char ch = pref[i];
+    for (char ch : pref) {
+        
+        if (ch == ch0 || ch == ch1
+          || ch == ch2 || ch == ch3 || ch== ch4
+          || ch == ch5 || ch == ch6 || ch == ch7
+          || ch == ch8 || ch == ch9) {
             int arg = static_cast<int>(ch - '0');
             stack2.push(arg);
         }
-          if (pref[i] == chM) {
+        if (ch == p) {
+         continue;
+        } 
+          if (ch == chM) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
@@ -47,7 +48,7 @@ int eval(std::string pref) {
           int res = arg2-arg1;
           stack2.push(res);
       }
-      if (pref[i] == chP) {
+      if (ch == chP) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
@@ -55,15 +56,15 @@ int eval(std::string pref) {
           int res = arg1+arg2;
           stack2.push(res);
       }
-      if (pref[i] == chMlt) {
+      if (ch == chMlt) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
           stack2.pop();
-          int res = arg1*arg2;
+          int res = arg2*arg1;
           stack2.push(res);
       }
-      if (pref[i] == chD) {
+      if (ch == chD) {
           int arg1 = stack2.get();
           stack2.pop();
           int arg2 = stack2.get();
