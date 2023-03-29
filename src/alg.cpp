@@ -40,7 +40,7 @@ std::string infx2pstfx(std::string inf) {
       stack1.pop();
       } else {
         while (!stack1.isEmpty() && stack1.get() != ch9Lsk
-               && getPrior[ch] <= getPrior[stack1.get()]) {
+               && getPrior(ch) <= getPrior(stack1.get())) {
         out += ' ';
         out += stack1.pop();
       }
