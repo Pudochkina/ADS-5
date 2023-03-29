@@ -40,7 +40,8 @@ std::string infx2pstfx(std::string inf) {
             stack1.push(inf.at(i));
         }
         if ((inf.at(i) == ch9Lsk || inf.at(i) == ch9Rsk || inf.at(i) == chP || inf.at(i) == chM || inf.at(i) == chMlt || inf.at(i) == chD) && (getPrior(inf.at(i)) <= getPrior(stack1.get()))) {
-            out += stack1.pop() + " ";
+            out += stack1.get() + " ";
+            stack1.pop();
             if (stack1.get() == ch9Lsk) {
                 stack1.pop();
             }
@@ -53,7 +54,8 @@ std::string infx2pstfx(std::string inf) {
         if (stack1.get() == ch9Lsk) {
             stack1.pop();
         }
-        out += stack1.pop() + " ";
+        out += stack1.get() + " ";
+        stack1.pop();
     }
     return out;
 }
