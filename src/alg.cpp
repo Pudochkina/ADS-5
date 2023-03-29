@@ -57,7 +57,7 @@ std::string infx2pstfx(std::string inf) {
         stack1.pop();
         }
     }
-    out -= " ";
+    out = out - " ";
     return out;
 }
 
