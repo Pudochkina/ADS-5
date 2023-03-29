@@ -37,9 +37,9 @@ std::string infx2pstfx(std::string inf) {
         out += ' ';
         out += stack1.pop();
       }
-      stack.pop();
+      stack1.pop();
       } else {
-        while (!stack1.isEmpty() && stack1.top() != ch9Lsk
+        while (!stack1.isEmpty() && stack1.get() != ch9Lsk
                && getPrior[ch] <= getPrior[stack1.get()]) {
         out += ' ';
         out += stack1.pop();
@@ -52,7 +52,7 @@ std::string infx2pstfx(std::string inf) {
     out += ' ';
     out += stack1.pop();
   }
-      
+  return out;    
 }
 
 //int eval(std::string pref) {
