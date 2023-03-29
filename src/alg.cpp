@@ -22,49 +22,44 @@ int getPrior(char ch) {
     }
     return -1;
 }
-std::string infx2pstfx(std::string inf) { 
-   TStack<char, 100> stack1;
-   std::string out = "";
-    for (int i = 0; i < inf.length(); i++) {
+std::string infx2pstfx(std::string inf) {
+  return std::string("");
+    std::string out = "";
+    TStack<char, 100> stack1;
+    for (int i = 0; i < inf.size(); i++) {
         if (inf[i] == ch0 || inf[i] == ch1 || inf[i] == ch2 || inf[i] == ch3
-            || inf[i] == ch4 || inf[i] == ch5 || inf[i] == ch6 || inf[i] == ch7 || inf[i] == ch8 || inf[i] == ch9) {
-            out += inf[i] + " ";
+            || inf[i] == ch4 || inf[i] == ch5 || inf[i] == ch6 || inf[i] == ch7 
+            || inf[i] == ch8 || inf[i] == ch9) {
+            out += inf[i];
+            out += " ";
         }
-        else if (inf[i] == ch9Lsk || stack1.isEmpty() || getPrior(inf[i]) > getPrior(stack1.get())) {
+            if (inf[i] == ch9Lsk || stack1.isEmpty() 
+|| getPrior(inf[i]) > getPrior(stack1.get())) {
             stack1.push(inf[i]);
-        } else if (getPrior(inf[i] <= stack1.get())) {
-                while (getPrior(inf[i] <= stack1.get()) && !stack1.isEmpty()) {
-                    out +=  stack1.pop() + " ";
-                }
-                stack1.push(inf[i]);
-            }
-        /*else if (getPrior(inf[i]) <= getPrior(stack1.get())) {
-            out += stack1.get() + " ";
-            stack1.pop();
-            if (stack1.get() == ch9Lsk) {
-                stack1.pop();
-            }
-            if (inf[i]!=ch9Lsk) {
-                stack1.push(inf[i]);
-            }
-        }*/
-        
-         else if (inf[i] == ch9Rsk) {
+        } 
+                if (inf[i] == ch9Rsk) {
                 char ch = stack1.pop();
                 while (ch != ch9Lsk) {
                     out += ch + " ";
                     ch = stack1.pop();
                 }
-            } 
-    }
-    while (!stack1.isEmpty()) {
-        if (stack1.get() == ch9Lsk) {
-            stack1.pop();
-        } else {
-        out += stack1.get() + " ";
-        stack1.pop();
+            }  
+if (getPrior(inf[i] <= stck.get())) {
+                while (getPrior(inf[i] <= stack1.get()) && !stack1.isEmpty()) {
+                    char c = stack1.pop();
+                    out += c;
+                    out += " ";
+                }
+                stack1.push(inf[i]);
+            }
         }
     }
+    while (!stack1.isEmpty()) {
+        char s = stack1.pop();
+        post += s;
+        post += " ";
+    }
+    out.pop_back();
     return out;
 }
 
