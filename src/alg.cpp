@@ -34,7 +34,7 @@ std::string infx2pstfx(std::string inf) {
         else if (inf[i] == ch9Lsk || stack1.isEmpty()) {
             stack1.push(inf[i]);
         }
-        else if (getPrior(inf[i]) > getPrior(stack1.get()) {
+        else if (getPrior(inf[i]) > getPrior(stack1.get())) {
             stack1.push(inf[i]);
         }
         else if (getPrior(inf[i]) <= getPrior(stack1.get())) {
