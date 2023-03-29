@@ -23,9 +23,38 @@ int getPrior(char ch) {
     return -1;
 }
 std::string infx2pstfx(std::string inf) {
-  
+  TStack<char, 100> stack1;
+  std::string out = "";
+  for (char ch : inf) {
+      if (ch == ch0 || ch == ch1 || ch == ch2 || ch == ch3
+            || ch == ch4 || ch == ch5 || ch == ch6 || ch == ch7 
+            || ch == ch8 || ch == ch9) {
+       out += ch;
+      } else if (ch == ch9Lsk) {
+          stack1.push(ch);
+      } else if (ch == ch9Rsk) {
+      while (!stack1.isEmpty() && stack1.get() != ch9Lsk) {
+        out += ' ';
+        out += stack1.pop();
+      }
+      stack.pop();
+      } else {
+        while (!stack1.isEmpty() && stack1.top() != ch9Lsk
+               && getPrior[ch] <= getPrior[stack1.get()]) {
+        out += ' ';
+        out += stack1.pop();
+      }
+      out += ' ';
+      stack1.push(ch);
+      }
+  }
+  while (!stack1.isEmpty()) {
+    out += ' ';
+    out += stack1.pop();
+  }
+      
 }
 
-int eval(std::string pref) {
+//int eval(std::string pref) {
     
-}
+//}
