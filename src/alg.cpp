@@ -27,7 +27,7 @@ int getPrior(char ch) {
 std::string infx2pstfx(std::string inf) { 
    TStack<char, 100> stack1;
    std::string out = "";
-    for (int i = 0; i < inf.size(); i++) {
+    for (int i = 0; i < inf.length(); i++) {
         if (inf.at(i) == ch0 || inf.at(i) == ch1 || inf.at(i) == ch2 || inf.at(i) == ch3 || inf.at(i) == ch4 || inf.at(i) == ch5 || inf.at(i) == ch6 || inf.at(i) == ch7 || inf.at(i) == ch8 || inf.at(i) == ch9) {
             out += inf.at(i) + " ";
         }
@@ -62,7 +62,7 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pref) {
   TStack<int, 100> stack2;
   int result;
-  for (int i = 0; i < pref.size(); i++) {
+  for (int i = 0; i < pref.length(); i++) {
       if (pref.at(i) == ch0 || pref.at(i) == ch1 || pref.at(i) == ch2 || pref.at(i) == ch3 || pref.at(i) == ch4 || pref.at(i) == ch5 || pref.at(i) == ch6 || pref.at(i) == ch7 || pref.at(i) == ch8 || pref.at(i) == ch9) {
           stack2.push(pref.at(i));
       }
@@ -95,6 +95,7 @@ int eval(std::string pref) {
           stack2.push(arg1/arg2);
       }
   }
-  result = stack2.get();  
+  result = stack2.get();
+  stack2.pop();
   return result;
 }
