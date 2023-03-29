@@ -31,10 +31,7 @@ std::string infx2pstfx(std::string inf) {
             || inf[i] == ch4 || inf[i] == ch5 || inf[i] == ch6 || inf[i] == ch7 || inf[i] == ch8 || inf[i] == ch9) {
             out += inf[i] + " ";
         }
-        else if (inf[i] == ch9Lsk || stack1.isEmpty()) {
-            stack1.push(inf[i]);
-        }
-        else if (getPrior(inf[i]) > getPrior(stack1.get())) {
+        else if (inf[i] == ch9Lsk || stack1.isEmpty() || getPrior(inf[i]) > getPrior(stack1.get())) {
             stack1.push(inf[i]);
         }
         else if (getPrior(inf[i]) <= getPrior(stack1.get())) {
