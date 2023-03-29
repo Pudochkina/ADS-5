@@ -22,8 +22,8 @@ int getPrior(char ch) {
     }
     return -1;
 }
-std::string infx2pstfx(std::string inf) {
-}
+//std::string infx2pstfx(std::string inf) {
+//}
 int eval(std::string pref) {
   
     TStack <int, 100> stack2;
