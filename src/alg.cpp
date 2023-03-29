@@ -6,7 +6,7 @@ char ch0 = '0', ch1 = '1', ch2 = '2', ch3 = '3', ch4 = '4', ch5 = '5',
 ch6 = '6', ch7 = '7', ch8 = '8', ch9 = '9', chM = '-',
 chP = '+', chD = '/', chMlt = '*', ch9Rsk = ')', ch9Lsk = '(';
 int getPrior(char ch) {
-    switch(ch) {
+    switch (ch) {
         case '(':
         return 0;
         case ')':
@@ -27,7 +27,7 @@ std::string infx2pstfx(std::string inf) {
   std::string out = "";
   for (char ch : inf) {
       if (ch == ch0 || ch == ch1 || ch == ch2 || ch == ch3
-            || ch == ch4 || ch == ch5 || ch == ch6 || ch == ch7 
+            || ch == ch4 || ch == ch5 || ch == ch6 || ch == ch7
             || ch == ch8 || ch == ch9) {
        out += ch;
       } else if (ch == ch9Lsk) {
@@ -52,7 +52,7 @@ std::string infx2pstfx(std::string inf) {
     out += ' ';
     out += stack1.pop();
   }
-  return out;    
+  return out;
 }
 
 //int eval(std::string pref) {
