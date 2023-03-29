@@ -64,6 +64,7 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pref) {
   TStack<int, 100> stack2;
   int result;
+  char p = ' ';
   for (int i = 0; i < pref.length(); i++) {
       if (pref[i] == ch0 || pref[i] == ch1 || pref[i] == ch2 || pref[i] == ch3 || pref[i] == ch4
           || pref[i] == ch5 || pref[i] == ch6 || pref[i] == ch7 || pref[i] == ch8 || pref[i] == ch9) {
@@ -72,7 +73,7 @@ int eval(std::string pref) {
           arg = ch - '0';
           stack2.push(arg);
       }
-      if (pref[i] == ' ') {
+      if (pref[i] == p) {
       continue;
       } 
       if (pref[i] == chM) {
