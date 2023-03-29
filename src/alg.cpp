@@ -51,14 +51,50 @@ std::string infx2pstfx(std::string inf) {
     while (!stack1.isEmpty()) {
         if (stack1.get() == ch9Lsk) {
             stack1.pop();
-        }
+        } else {
         out += stack1.get() + " ";
         stack1.pop();
+        }
     }
     return out;
 }
 
 int eval(std::string pref) {
   TStack<int, 100> stack2;
-  return 0;
+  int result;
+  for (int i = 0; i < pref.size(); i++) {
+      if (pref.at(i) == ch0 || pref.at(i) == ch1 || pref.at(i) == ch2 || pref.at(i) == ch3 || pref.at(i) == ch4 || pref.at(i) == ch5 || pref.at(i) == ch6 || pref.at(i) == ch7 || pref.at(i) == ch8 || pref.at(i) == ch9) {
+          stack2.push(pref.at(i));
+      }
+      if (pref.at(i) == chM) {
+          int arg1 = stack2.get();
+          stack2.pop();
+          int arg2 = stack2.get();
+          stack2.pop();
+          stack2.push(arg1-arg2);
+      }
+      if (pref.at(i) == chP) {
+          int arg1 = stack2.get();
+          stack2.pop();
+          int arg2 = stack2.get();
+          stack2.pop();
+          stack2.push(arg1+arg2);
+      }
+      if (pref.at(i) == chMlt) {
+          int arg1 = stack2.get();
+          stack2.pop();
+          int arg2 = stack2.get();
+          stack2.pop();
+          stack2.push(arg1*arg2);
+      }
+      if (pref.at(i) == chD) {
+          int arg1 = stack2.get();
+          stack2.pop();
+          int arg2 = stack2.get();
+          stack2.pop();
+          stack2.push(arg1/arg2);
+      }
+  }
+  result = stack2.get();  
+  return result;
 }
