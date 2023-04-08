@@ -42,7 +42,7 @@ std::string infx2pstfx(std::string inf) {
       stck1.push(s);
       flag = false;
     }
-    if (iter && s != ')') {
+    if (flag && s != ')') {
       while (getPrior(stck1.pol()) >= getPrior(s)) {
         out += stck1.pop();
         out += ' ';
